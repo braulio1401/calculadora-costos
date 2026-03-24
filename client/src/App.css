@@ -1,0 +1,52 @@
+* { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0; padding: 0; width: 100%; min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f3f4f6;
+}
+
+.app-contenedor { width: 100%; min-height: 100vh; }
+
+.login-contenedor {
+  display: flex; justify-content: center; align-items: center;
+  width: 100%; min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+}
+
+.login-tarjeta {
+  background-color: white; padding: 40px; border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5); text-align: center;
+  width: 100%; max-width: 400px;
+}
+
+.login-tarjeta h2 { margin-top: 0; color: #1f2937; }
+.login-subtitulo { color: #6b7280; margin-bottom: 30px; }
+
+.btn-google {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; padding: 12px; background-color: white;
+  color: #374151; border: 1px solid #d1d5db; border-radius: 8px;
+  font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.2s ease;
+}
+
+.btn-google:hover { background-color: #f9fafb; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+.icono-google { width: 24px; height: 24px; margin-right: 10px; }
+
+.header-pro {
+  display: flex; justify-content: space-between; align-items: center;
+  background-color: #0f172a; color: white; padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header-pro h2 { margin: 0; font-size: 20px; }
+.perfil-usuario { display: flex; align-items: center; gap: 15px; }
+.perfil-usuario img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid white; }
+
+.btn-salir {
+  background-color: #ef4444; color: white; border: none; padding: 8px 15px;
+  border-radius: 6px; cursor: pointer; font-weight: bold;
+}
+.btn-salir:hover { background-color: #dc2626; }
+
+.contenido-principal { padding: 40px; display: flex; justify-content: center; }
