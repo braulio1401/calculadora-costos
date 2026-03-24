@@ -36,8 +36,8 @@ app.post('/api/pago', async (req, res) => {
                 quantity: 1
             }],
             mode: 'payment',
-            success_url: 'http://localhost:5173/?pago=exito',
-            cancel_url: 'http://localhost:5173/'
+            success_url: 'https://calculadora-costos-rouge.vercel.app/?pago=exito',
+            cancel_url: 'https://calculadora-costos-rouge.vercel.app/'
         });
 
         /* AHORA ENVIAMOS LA URL DIRECTA, NO EL ID */;
