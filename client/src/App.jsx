@@ -33,7 +33,7 @@ function App() {
       const monto = 20;
       const r = 1;
 
-      const respuesta = await fetch('http://localhost:5005/api/pago', {
+const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/pago', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ monto: monto, r: r })
