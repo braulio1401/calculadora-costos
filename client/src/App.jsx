@@ -8,7 +8,7 @@ function App() {
   const [usuario, setUsuario] = useState(null);
   const [cargando, setCargando] = useState(true);
 
-  /* Detectamos si Stripe nos mando la senal de exito en la URL */;
+
   const urlParams = new URLSearchParams(window.location.search);
   const pagoExitoso = urlParams.get('pago') === 'exito';
 
@@ -41,7 +41,7 @@ const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/
 
       const sesion = await respuesta.json();
 
-      /* Redireccion directa con la URL generada por tu backend */;
+
       if (sesion.url) {
           window.location.href = sesion.url;
       } else {
@@ -82,8 +82,8 @@ const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/
                <CostosLaborales />
             ) : (
                <div className="login-tarjeta" style={{ marginTop: '50px', textAlign: 'center' }}>
-                  <h3 style={{ color: '#000' }}>¡Bienvenido, {usuario.displayName}!</h3>
-                  <p style={{ color: '#333' }}>Para habilitar la calculadora de nómina, adquiere tu acceso por $20 MXN.</p>
+                  <h3 style={{ color: '#000' }}>Bienvenido, {usuario.displayName}!</h3>
+                  <p style={{ color: '#333' }}>Para acceder a la calculadora de costos de empleados requieres pagar una suscripción de $20 MXN.</p>
                   <button onClick={procesarPago} className="btn-google" style={{ backgroundColor: '#28a745', color: 'white' }}>
                     Pagar Acceso
                   </button>
@@ -95,8 +95,8 @@ const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/
       ) : (
         <div className="login-contenedor">
           <div className="login-tarjeta">
-            <h2>Acceso Seguro</h2>
-            <p className="login-subtitulo">Inicia sesión para entrar al sistema</p>
+            <h2>calculadora de costos de empleados</h2>
+            <p className="login-subtitulo">Inicia sesión para entrar a la calculadora de costos de empleados</p>
             
             <button onClick={iniciarSesion} className="btn-google">
               <img 

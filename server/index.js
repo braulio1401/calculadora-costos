@@ -48,10 +48,9 @@ app.post('/api/pago', async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-    res.send('Servidor de Costo de Empleados funcionando al 100% con Stripe');
+    res.send('Servidor de Costo de Empleados funcionando con Stripe');
 });
 
-/* Forzamos la conexion a IPv4 para Mongo */;
 mongoose.connect(process.env.MONGO_URI, {
     family: 4
 })
@@ -61,4 +60,4 @@ mongoose.connect(process.env.MONGO_URI, {
         console.log(` Servidor corriendo en el puerto ${process.env.PORT}`);
     });
 })
-.catch((error) => console.error(' Error conectando a Mongo: ', error));
+.catch((error) => console.error(' Error al conectar a Mongo: ', error));
