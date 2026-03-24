@@ -17,7 +17,6 @@ const rutasPagos = require('./routes/pagos');
 app.use('/api/empleados', rutasEmpleados);
 app.use('/api/pagos', rutasPagos);
 
-/* RUTA DE PAGO ACTUALIZADA A LA NUEVA VERSION DE STRIPE */;
 app.post('/api/pago', async (req, res) => {
     try {
         const monto = req.body.monto;
@@ -29,7 +28,7 @@ app.post('/api/pago', async (req, res) => {
                 price_data: {
                     currency: 'mxn',
                     product_data: {
-                        name: 'Acceso a Calculadora de Nómina'
+                        name: 'Acceso a Calculadora de costo de empleados'
                     },
                     unit_amount: monto * 100
                 },
@@ -40,7 +39,6 @@ app.post('/api/pago', async (req, res) => {
             cancel_url: 'https://calculadora-costos-rouge.vercel.app/'
         });
 
-        /* AHORA ENVIAMOS LA URL DIRECTA, NO EL ID */;
         res.json({ url: session.url });
     } catch (error) {
         res.status(500).json({ error: error.message });
