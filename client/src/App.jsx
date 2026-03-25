@@ -3,6 +3,7 @@ import { signInWithPopup, signOut, onAuthStateChanged } from 'firebase/auth';
 import { auth, provider } from './firebase';
 import CostosLaborales from './components/CalculadoraCostos';
 import './App.css';
+import Login from './components/Login';
 
 function App() {
   const [usuario, setUsuario] = useState(null);
@@ -93,21 +94,7 @@ const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/
         </div>
 
       ) : (
-        <div className="login-contenedor">
-          <div className="login-tarjeta">
-            <h2>calculadora de costos de empleados</h2>
-            <p className="login-subtitulo">Inicia sesión para entrar a la calculadora de costos de empleados</p>
-            
-            <button onClick={iniciarSesion} className="btn-google">
-              <img 
-                src="https://cdn-icons-png.flaticon.com/512/300/300221.png" 
-                alt="Google logo" 
-                className="icono-google"
-              />
-              Continuar con Google
-            </button>
-          </div>
-        </div>
+        <Login onLogin={(user) => console.log("Usuario conectado", user)} />
       )}
     </div>
   );
