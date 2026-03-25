@@ -178,7 +178,7 @@ const CostosLaborales = () => {
         equipo, uniformes, materiales
       };
 
-      const respuesta = await fetch('http://localhost:5005/api/empleados', {
+      const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/empleados', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(datosGuardar)
@@ -237,7 +237,7 @@ const CostosLaborales = () => {
       return;
     }
     try {
-      const respuesta = await fetch(`http://localhost:5005/api/empleados/${empleadoId}`);
+      const respuesta = await fetch(`https://calculadora-costos-g6vh.onrender.com/api/empleados/${empleadoId}`);
       if (respuesta.ok) {
         const datos = await respuesta.json();
         setNombre(datos.nombre); setFechaIngreso(datos.fechaIngreso); setSalario(datos.salario);
