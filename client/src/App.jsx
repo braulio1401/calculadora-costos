@@ -9,7 +9,6 @@ function App() {
   const [usuario, setUsuario] = useState(null);
   const [cargando, setCargando] = useState(true);
 
-
   const urlParams = new URLSearchParams(window.location.search);
   const pagoExitoso = urlParams.get('pago') === 'exito';
 
@@ -34,14 +33,13 @@ function App() {
       const monto = 20;
       const r = 1;
 
-const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/pago', {
+      const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/pago', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ monto: monto, r: r })
       });
 
       const sesion = await respuesta.json();
-
 
       if (sesion.url) {
           window.location.href = sesion.url;
@@ -82,12 +80,32 @@ const respuesta = await fetch('https://calculadora-costos-g6vh.onrender.com/api/
             {pagoExitoso ? (
                <CostosLaborales />
             ) : (
-               <div className="login-tarjeta" style={{ marginTop: '50px', textAlign: 'center' }}>
-                  <h3 style={{ color: '#000' }}>Bienvenido, {usuario.displayName}!</h3>
-                  <p style={{ color: '#333' }}>Para acceder a la calculadora de costos de empleados requieres pagar una suscripción de $20 MXN.</p>
-                  <button onClick={procesarPago} className="btn-google" style={{ backgroundColor: '#28a745', color: 'white' }}>
-                    Pagar Acceso
+               /* AQUÍ ENTRA ÚNICAMENTE EL DISEÑO DE MENY PARA LA TARJETA */
+               <div style={{
+                 background: "#f5efe4", border: "1.5px solid #c8b48a",
+                 borderRadius: 20, padding: "40px 32px",
+                 maxWidth: 420, margin: "50px auto", textAlign: "center",
+                 boxShadow: "0 10px 30px rgba(58, 46, 30, 0.08)", display: "flex",
+                 flexDirection: "column", gap: 18
+               }}>
+                  <div style={{ fontSize: 42, marginBottom: "-5px" }}>✨</div>
+                  <h3 style={{ fontSize: 22, fontWeight: 700, margin: 0, color: "#3a2e1e", letterSpacing: "-0.02em" }}>
+                    Hola, {usuario.displayName.split(' ')[0]}
+                  </h3>
+                  <p style={{ fontSize: 15, color: "#5a4a30", margin: "0 0 8px", lineHeight: 1.5 }}>
+                    Estás a un paso de optimizar tu gestión. Desbloquea el acceso completo a la calculadora de costos laborales por una suscripción de <strong style={{ color: "#7a5a20", fontSize: 16 }}>$20 MXN</strong>.
+                  </p>
+                  <button onClick={procesarPago} style={{
+                    background: "#3a2e1e", border: "none", color: "#f5efe4",
+                    padding: "16px 24px", borderRadius: 12, fontSize: 15, fontWeight: 600,
+                    cursor: "pointer", transition: "all 0.2s",
+                    width: "100%", letterSpacing: "0.02em"
+                  }}>
+                    Desbloquear Acceso
                   </button>
+                  <div style={{ fontSize: 12, color: "#9a8050", marginTop: "4px", letterSpacing: "0.02em" }}>
+                    🔒 Pago seguro · Acceso inmediato
+                  </div>
                </div>
             )}
           </main>
